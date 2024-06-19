@@ -8,7 +8,7 @@ LABEL maintainer="your-email@example.com"
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the WAR file to the webapps directory of Tomcat
-COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY mydiary/target/mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose the port that Tomcat is running on
 EXPOSE 8080
