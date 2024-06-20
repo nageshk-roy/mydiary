@@ -8,7 +8,7 @@ LABEL maintainer="your_email@example.com"
 COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 # Expose the default Tomcat port
-EXPOSE 8080
+EXPOSE 8005
 
 # Set the environment variable to configure Tomcat (optional)
 ENV CATALINA_OPTS=""
