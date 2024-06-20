@@ -1,17 +1,14 @@
-# Start with a base image that includes Java 17 and Tomcat
-FROM tomcat:9.0-jdk17-temurin
+# Use an official Tomcat base image
+FROM tomcat:9.0
 
 # Maintainer information
-LABEL maintainer="your-email@example.com"
+LABEL maintainer="your_email@example.com"
 
-# Remove the default webapps to keep the image lightweight
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Add the WAR file to the webapps directory of Tomcat
+COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-# Copy the WAR file to the webapps directory of Tomcat
-COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-
-# Expose the port that Tomcat is running on
+# Expose the port on which Tomcat runs
 EXPOSE 8080
 
-# Start Tomcat server
+# Start Tomcat
 CMD ["catalina.sh", "run"]
