@@ -4,11 +4,14 @@ FROM tomcat:9.0
 # Maintainer information
 LABEL maintainer="your_email@example.com"
 
-# Add the WAR file to the webapps directory of Tomcat
+# Copy the WAR file to the webapps directory of Tomcat
 COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-# Expose the port on which Tomcat runs
+# Expose the default Tomcat port
 EXPOSE 8080
 
-# Start Tomcat
+# Set the environment variable to configure Tomcat (optional)
+ENV CATALINA_OPTS=""
+
+# Start Tomcat by running the catalina.sh script
 CMD ["catalina.sh", "run"]
