@@ -11,7 +11,7 @@
 	<groupId>com.twg</groupId>
 	<artifactId>mydiary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>mydiary</name>
 	<description>My First spring boot jpa project</description>
 	<properties>
