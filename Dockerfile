@@ -1,7 +1,7 @@
-FROM openjdk:17-jdk
+FROM tomcat:9.0-jdk17
 
-WORKDIR /app
+COPY ./mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-COPY ./mydiary-0.0.1-SNAPSHOT.war /app/mydiary-0.0.1-SNAPSHOT.war
+EXPOSE 8080
 
-CMD ["java", "-jar", "mydiary-0.0.1-SNAPSHOT.war"]
+CMD ["catalina.sh", "run"]
