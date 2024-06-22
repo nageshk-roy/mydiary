@@ -29,7 +29,7 @@ EXPOSE 8080
 #ENV SPRING_DATASOURCE_USERNAME=${DB_USER}
 #ENV SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
 
-#ENV SERVER_PORT=9090
+ENV SERVER_PORT=8080
 
 # Run the application with the custom port
 ENTRYPOINT ["java", "-jar", "mydiary.jar", "--server.port=${SERVER_PORT}"]
