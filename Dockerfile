@@ -8,16 +8,18 @@
 #ENV JAVA_OPTS="-Dspring.datasource.url=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME} -Dspring.datasource.username=${DB_USER} -Dspring.datasource.password=${DB_PASSWORD}"
 #EXPOSE 8080
 #ENTRYPOINT ["java","-jar","mydiary.jar"]
-
+From maven:3.8.5-openjdk-17  As build
+COPY . .
+RUN mvn clean package -DskipTests
 
 # Use the official OpenJDK image from the Docker Hub
 From openjdk:17.0.1-jdk-slim
 
 # Set the working directory inside the container
-WORKDIR /mydiary
+#WORKDIR /mydiary
 
 # Copy the JAR file to the container
-COPY target/mydiary-0.0.1-SNAPSHOT.jar mydiary.jar
+COPY --from=build /target/mydiary-0.0.1-SNAPSHOT.jar mydiary.jar
 
 # Expose the port that the application runs on
 EXPOSE 8080
