@@ -1,4 +1,4 @@
-FROM tomcat:9.0-jdk17
+FROM tomcat:10.0-jdk17
 
 COPY ./mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
