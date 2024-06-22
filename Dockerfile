@@ -25,11 +25,11 @@ COPY --from=build /target/mydiary-0.0.1-SNAPSHOT.jar mydiary.jar
 EXPOSE 8080
 
 # Set environment variables for the database connection
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
-ENV SPRING_DATASOURCE_USERNAME=${DB_USER}
-ENV SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+#ENV SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+#ENV SPRING_DATASOURCE_USERNAME=${DB_USER}
+#ENV SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
 
-ENV SERVER_PORT=9090
+#ENV SERVER_PORT=9090
 
 # Run the application with the custom port
 ENTRYPOINT ["java", "-jar", "mydiary.jar", "--server.port=${SERVER_PORT}"]
