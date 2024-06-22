@@ -11,4 +11,4 @@ COPY mydiary-0.0.1-SNAPSHOT.war /app
 EXPOSE 8080
 
 # Command to run your application
-CMD ["java", "-jar", "application.war"]
+CMD ["java", "-jar", "mydiary-0.0.1-SNAPSHOT.war"]
