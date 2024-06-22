@@ -32,5 +32,5 @@ ENV SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
 ENV SERVER_PORT=9090
 
 # Run the application with the custom port
-ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=${SERVER_PORT}"]
+ENTRYPOINT ["java", "-jar", "mydiary.jar", "--server.port=${SERVER_PORT}"]
 
