@@ -1,17 +1,14 @@
-# Use an official Tomcat base image
-FROM tomcat:9.0
+# Use an official Tomcat runtime as a parent image
+FROM tomcat:9.0.58-jdk17-openjdk
 
-# Maintainer information
-LABEL maintainer="your_email@example.com"
+# Set environment variables
+ENV JAVA_OPTS="-Dspring.datasource.url=jdbc:mysql://${monorail.proxy.rlwy.net}:${51676}/${railway} -Dspring.datasource.username=${root} -Dspring.datasource.password=${SPbhSgWERoNgPdVaGFZnKEKbxaMNXxux}"
 
 # Copy the WAR file to the webapps directory of Tomcat
-COPY mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+COPY target/mydiary-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose the default Tomcat port
-EXPOSE 8005
+# Expose the port that Tomcat runs on
+EXPOSE 8080
 
-# Set the environment variable to configure Tomcat (optional)
-ENV CATALINA_OPTS=""
-
-# Start Tomcat by running the catalina.sh script
+# Run Tomcat
 CMD ["catalina.sh", "run"]
