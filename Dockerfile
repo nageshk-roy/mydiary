@@ -2,7 +2,7 @@
 FROM openjdk:11-jdk-slim
 
 # Set the working directory inside the container
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the JAR file to the container
 COPY target/mydiary-0.0.1-SNAPSHOT.jar app.jar
